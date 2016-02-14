@@ -1,0 +1,84 @@
+<html>
+<head>
+	<title>The Aww Thing</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="css/bootstrap.css" >
+	<script type="text/javascript" overflow=auto>
+
+	function showing(){
+		var imageArray = [ "./img/broken_heart.jpg", "./img/heart.gif"];
+		var image = document.getElementById('myImage');
+		
+		var his = document.getElementById('his').value;
+		var lastValue = his.slice(-1);
+		if(lastValue==" "){
+			 image.src =imageArray[0];
+			 breakingHeart.play();
+		}else{
+			 image.src =imageArray[1];
+			 JoiningHeart.play();
+
+		}
+       	
+        blink(14);
+ 
+		//imgTag.style.visibility="hidden";
+	}
+
+	function blink(count)
+ 	{
+	     var count = count;
+	     var e = document.getElementById("myImage");
+	     e.style.visibility = ( e.style.visibility == 'visible' )? 'hidden' : 'visible';
+	     count--;
+	     if (count <= 0)
+	     {
+	     	return;
+	     }
+	     else
+	     {
+	         setTimeout("blink('" + count + "');", 500);
+	     }
+	}
+	</script>
+<style> 
+
+#breakingHeart,#JoiningHeart{
+	visibility: hidden;
+}
+
+</style>
+</head>
+<body background="./img/images.png"  style="">
+	<div class="container">
+
+	<div class="jumbotron">
+	  <h1>Valentine ?!</h1>
+	  	<div class="row">
+		  	<div class="col-md-6">
+			  	<div class="input-group">
+			  		<span class="input-group-addon" id="basic-addon3">Your Name</span>
+			  		<input id ="his" type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+				</div>
+			</div>
+		  	<div class="col-md-6">
+			  	<div class="input-group">
+				  	<span class="input-group-addon" id="basic-addon3">Others Name</span>
+				  	<input id ="her"   type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" onblur="showing();">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="heart">
+		<img id = "myImage" src=""  >
+		<audio id="breakingHeart" controls="controls"><source src="./music/Fart.mp3" type="audio/mpeg" /></audio>
+		<audio id="JoiningHeart" controls="controls"><source src="./music/Breaking.mp3" type="audio/mpeg" /></audio>
+	</div>
+	</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+</html>
